@@ -2,7 +2,6 @@ package main
 
 import (
 	"context"
-	"github.com/gin-contrib/cors"
 	"log/slog"
 	"os"
 	"os/signal"
@@ -11,6 +10,8 @@ import (
 	"thesis/internal/server"
 	"thesis/internal/storage"
 	"time"
+
+	"github.com/gin-contrib/cors"
 
 	"github.com/gin-gonic/gin"
 )
@@ -62,8 +63,6 @@ func main() {
 			panic(err)
 		}
 	}()
-
-	log.Info("server started")
 
 	// If got signal stopping server
 	<-done

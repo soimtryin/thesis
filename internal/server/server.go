@@ -2,6 +2,7 @@ package server
 
 import (
 	"context"
+	"fmt"
 	"net/http"
 	"time"
 )
@@ -18,6 +19,8 @@ func (s *Server) RunServer(address string, h http.Handler) error {
 		WriteTimeout:   30 * time.Second,
 		ReadTimeout:    10 * time.Second,
 	}
+
+	fmt.Printf("Server started at: %s\n", address)
 
 	return s.httpServer.ListenAndServe()
 }
